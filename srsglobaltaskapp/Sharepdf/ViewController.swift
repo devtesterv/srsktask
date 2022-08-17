@@ -27,14 +27,14 @@ class ViewController: UIViewController {
         scrollView.keyboardDismissMode = .onDrag
     }
     func shareAction() {
-        // 1
+        
         guard
             let firstName = firstNameTextField.text,
             let lastName = lastNameTextField.text,
             let dateOfbirth = dateOfbirthTextField.text,
             let phoneNumber = phoneNumberTextField.text
         else {
-            // 2
+           
             let alert = UIAlertController(title: "All Information Not Provided", message: "You must supply all information to create a flyer.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
             return
         }
         if let image = signatureView.getDesign {
-            // 3
+           
             let pdfCreator = PDFCreator(firstName: firstName, lastName: lastName, image: image, dateOfbirth: dateOfbirth, phoneNumber: phoneNumber)
             let pdfData = pdfCreator.createFlyer()
             
