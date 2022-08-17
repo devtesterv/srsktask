@@ -1,9 +1,4 @@
-//
-//  AddViewController.swift
-//  srsglobaltaskapp
-//
-//  Created by CV on 8/17/22.
-//
+
 
 import UIKit
 import CoreData
@@ -23,7 +18,7 @@ class MainListViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "ListCell", bundle: nil), forCellReuseIdentifier: "ListCell")
+        tableView.register(UINib(nibName: "ListItemCell", bundle: nil), forCellReuseIdentifier: "ListItemCell")
         // Do any additional setup after loading the view.
         fetchData()
     }
@@ -93,7 +88,7 @@ class MainListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath) as? ListItemCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListItemCell", for: indexPath) as? ListItemCell else { return UITableViewCell()}
         cell.namelabel.text = nameArray[indexPath.row]
         return cell
     }
@@ -151,5 +146,7 @@ class MainListViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }

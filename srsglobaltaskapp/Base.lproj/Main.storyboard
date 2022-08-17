@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBn-Ia-e53">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1b5-CV-zeJ">
                                         <rect key="frame" x="10" y="10" width="394" height="439"/>
@@ -280,7 +280,7 @@
             </objects>
             <point key="canvasLocation" x="1240.5797101449277" y="809.59821428571422"/>
         </scene>
-        <!--Main List View Controller-->
+        <!--Add Info-->
         <scene sceneID="BIE-yl-l9H">
             <objects>
                 <viewController storyboardIdentifier="AddViewController" id="Bog-ny-zqB" customClass="MainListViewController" customModule="srsglobaltaskapp" customModuleProvider="target" sceneMemberID="viewController">
@@ -289,7 +289,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aJ0-b1-GpX">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="10" y="88" width="394" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -297,12 +297,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="txH-h7-IWa" firstAttribute="bottom" secondItem="aJ0-b1-GpX" secondAttribute="bottom" id="9K7-ft-CWl"/>
-                            <constraint firstItem="txH-h7-IWa" firstAttribute="trailing" secondItem="aJ0-b1-GpX" secondAttribute="trailing" id="H5z-Ie-X28"/>
-                            <constraint firstItem="aJ0-b1-GpX" firstAttribute="leading" secondItem="txH-h7-IWa" secondAttribute="leading" id="fnD-HD-4V7"/>
+                            <constraint firstItem="txH-h7-IWa" firstAttribute="trailing" secondItem="aJ0-b1-GpX" secondAttribute="trailing" constant="10" id="H5z-Ie-X28"/>
+                            <constraint firstItem="aJ0-b1-GpX" firstAttribute="leading" secondItem="txH-h7-IWa" secondAttribute="leading" constant="10" id="fnD-HD-4V7"/>
                             <constraint firstItem="aJ0-b1-GpX" firstAttribute="top" secondItem="txH-h7-IWa" secondAttribute="top" id="xDZ-4O-I20"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="URe-HB-tZV">
+                    <navigationItem key="navigationItem" title="Add Info" id="URe-HB-tZV">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="I3x-nF-4AX">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gkD-5w-4aQ">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
@@ -433,7 +433,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="lsU-GM-BLn"/>
+                        <segue destination="Bog-ny-zqB" kind="relationship" relationship="rootViewController" id="9Vn-ft-Is1"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Swd-rI-xeT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

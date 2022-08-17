@@ -1,10 +1,3 @@
-//
-//  Canvas.swift
-//  srsglobaltaskapp
-//
-//  Created by CV on 8/17/22.
-//
-
 import Foundation
 import UIKit
 //struct Line {
