@@ -12,6 +12,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var fnameLabel: UILabel!
     @IBOutlet weak var lnameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var phonenumberLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         productSelection()
@@ -35,13 +36,20 @@ class DetailsViewController: UIViewController {
                         
                         for result in results as! [NSManagedObject]{
                             if let fname = result.value(forKey: "fname") as? String {
+                                debugPrint(fname)
                                 fnameLabel.text = fname
                             }
                             if let lname = result.value(forKey: "lname") as? String {
+                                debugPrint(lname)
                                 lnameLabel.text = lname
                             }
                             if let aged = result.value(forKey: "age") as? Int {
+                                debugPrint(aged)
                                 ageLabel.text = String(aged)
+                            }
+                            if let contactnos = result.value(forKey: "contactno") as? Int {
+                                debugPrint(contactnos)
+                                phonenumberLabel.text = String(contactnos)
                             }
                             if let imageData = result.value(forKey: "simage") as? Data {
                                 let image = UIImage(data: imageData)
@@ -60,6 +68,7 @@ class DetailsViewController: UIViewController {
             fnameLabel.text = ""
             lnameLabel.text = ""
             ageLabel.text = ""
+            phonenumberLabel.text = ""
         }
     }
     
@@ -72,5 +81,20 @@ class DetailsViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
+    @IBAction func sharePDF(_ sender: Any) {
+        if let firstName = fnameLabel.text,
+           let lastName = lnameLabel.text ,
+           let image = signImageview.image,
+           let dateOfbirth =  ageLabel.text,
+           let phoneNo = phonenumberLabel.text{
+            let pdfCreator = PDFCreator(firstName: firstName,
+                                        lastName: lastName,
+                                        image: image,
+                                        dateOfbirth: dateOfbirth,
+                                        phoneNumber: phoneNo)
+            let pdfData = pdfCreator.createFlyer()
+            let vc = UIActivityViewController(activityItems: [pdfData], applicationActivities: [])
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }
